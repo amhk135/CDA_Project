@@ -1,25 +1,47 @@
+// Smooth Scroll Navigation - Active Link Highlight
 window.addEventListener('scroll', function() {
-  const nav = document.getElementById('navbar');
-  const sections = document.querySelectorAll('section');
-  let currentSection = '';
+  let sections = document.querySelectorAll('section');
+  let navLinks = document.querySelectorAll('nav ul li a');
 
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
+  sections.forEach((section, index) => {
+      let top = window.scrollY;
+      let offset = section.offsetTop - 100;
+      let height = section.offsetHeight;
 
-    if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
-      currentSection = section.getAttribute('id');
-    }
+      if (top >= offset && top < offset + height) {
+          navLinks.forEach(link => {
+              link.classList.remove('active');
+          });
+          navLinks[index].classList.add('active');
+      }
   });
+});
 
-  const navLinks = document.querySelectorAll('nav ul li a');
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href').includes(currentSection)) {
-      link.classList.add('active');
-      nav.style.backgroundColor = 'darkgrey';
-    } else {
-      nav.style.backgroundColor = '#d3d3d3';
-    }
+// Dynamic Add/Remove References
+document.getElementById('add-reference').addEventListener('click', function() {
+  const referenceSection = document.getElementById('reference-section');
+  const newReference = document.createElement('div');
+  newReference.classList.add('reference-fields');
+
+  newReference.innerHTML = `
+      <label>Name:</label>
+      <input type="text" name="reference_name" required>
+
+      <label>Title:</label>
+      <input type="text" name="reference_title" required>
+
+      <label>Company:</label>
+      <input type="text" name="reference_company" required>
+
+      <label>Phone:</label>
+      <input type="tel" name="reference_phone" required>
+
+      <button type="button" class="remove-reference">Remove Reference</button>
+  `;
+
+  referenceSection.appendChild(newReference);
+
+  newReference.querySelector('.remove-reference').addEventListener('click', function() {
+      referenceSection.removeChild(newReference);
   });
 });
