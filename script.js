@@ -24,19 +24,21 @@ document.getElementById('add-reference').addEventListener('click', function() {
   newReference.classList.add('reference-fields');
 
   newReference.innerHTML = `
-      <label>Name:</label>
-      <input type="text" name="reference_name" required>
-
-      <label>Title:</label>
-      <input type="text" name="reference_title" required>
-
-      <label>Company:</label>
-      <input type="text" name="reference_company" required>
-
-      <label>Phone:</label>
-      <input type="tel" name="reference_phone" required>
-
-      <button type="button" class="remove-reference">Remove Reference</button>
+        <div class="col">
+            <label for="reference-name">Reference Name:</label>
+            <input type="text" id="reference-name" name="reference-name" placeholder="Name" required>
+        </div>
+        <div class="col">
+            <label for="reference-title">Title:</label>
+            <input type="text" id="reference-title" name="reference-title" placeholder="Title" required>
+        </div>
+        <div class="col">
+            <label for="reference-company">Company:</label>
+            <input type="text" id="reference-company" name="reference-company" placeholder="Company" required>
+        </div>
+        <div class="col">
+            <label for="reference-phone">Phone:</label>
+            <input type="tel" id="reference-phone" name="reference-phone" placeholder="Phone" required>
   `;
 
   referenceSection.appendChild(newReference);
