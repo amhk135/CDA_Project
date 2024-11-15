@@ -85,3 +85,24 @@ function nextSection(currentId, nextId) {
 		alert("Please fill out all required fields correctly.");
 	}
 }
+
+// function to show add reference button if the checkbox is checked
+function toggleReferenceButton() {
+	let checkbox = document.getElementById("add-references");
+	let button = document.getElementById("add-reference");
+	if (checkbox.checked) {
+		button.style.display = "block";
+	} else {
+		button.style.display = "none";
+	}
+}
+
+function toggleConvictionButton() {
+	let checkbox = document.getElementById("add-convictions");
+	let button = document.getElementById("add-conviction");
+	if (checkbox.checked) {
+		button.style.display = "block";
+	} else {
+		button.style.display = "none";
+	}
+}

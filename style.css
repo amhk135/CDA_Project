@@ -91,6 +91,10 @@ form {
 	padding-right: 0;
 }
 
+.col-auto {
+	padding-right: 5px; /* Add a small gap to keep it close but separated */
+}
+
 label {
 	display: block;
 	margin-bottom: 5px;
