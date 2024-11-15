@@ -106,3 +106,23 @@ function toggleConvictionButton() {
 		button.style.display = "none";
 	}
 }
+
+function toggleEducationButton() {
+	let checkbox = document.getElementById("add-education");
+	let button = document.getElementById("add-education-button");
+	if (checkbox.checked) {
+		button.style.display = "block";
+	} else {
+		button.style.display = "none";
+	}
+}
+
+function toggleExperienceButton() {
+	let checkbox = document.getElementById("add-experience");
+	let button = document.getElementById("add-experience-button");
+	if (checkbox.checked) {
+		button.style.display = "block";
+	} else {
+		button.style.display = "none";
+	}
+}

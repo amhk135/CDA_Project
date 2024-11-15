@@ -430,89 +430,20 @@
 <section id="education">
     <h2>Education</h2>
     <form id="education-form">
-        <label>
-            <input type="checkbox" id="add-education">
-            Do you want to add education background?
-        </label>
-        <div class="row education-fields">
-            <div class="col">
-                <label for="graduation-date">Graduation Date:</label>
-                <input type="date" id="graduation-date">
+        <div class="row">
+            <div class="col-auto">
+                <input type="checkbox" id="add-education" name="add-education" onclick="toggleEducationButton()">
             </div>
             <div class="col">
-                <label for="school-type">School Type:</label>
-                <select id="school-type">
-                    <option value="college">College</option>
-                    <option value="highschool">High School</option>
-                </select>
-            </div>
-            <div class="col">
-                <label for="school-name">School Name:</label>
-                <input type="text" id="school-name" placeholder="School Name">
-            </div>
-            <div class="col">
-                <label for="state">State:</label>
-                <select id="state">
-                    <option value="">Select state</option>
-                    <option value="AL">Alabama</option>
-                    <option value="AK">Alaska</option>
-                    <option value="AZ">Arizona</option>
-                    <option value="AR">Arkansas</option>
-                    <option value="CA">California</option>
-                    <option value="CO">Colorado</option>
-                    <option value="CT">Connecticut</option>
-                    <option value="DE">Delaware</option>
-                    <option value="FL">Florida</option>
-                    <option value="GA">Georgia</option>
-                    <option value="HI">Hawaii</option>
-                    <option value="ID">Idaho</option>
-                    <option value="IL">Illinois</option>
-                    <option value="IN">Indiana</option>
-                    <option value="IA">Iowa</option>
-                    <option value="KS">Kansas</option>
-                    <option value="KY">Kentucky</option>
-                    <option value="LA">Louisiana</option>
-                    <option value="ME">Maine</option>
-                    <option value="MD">Maryland</option>
-                    <option value="MA">Massachusetts</option>
-                    <option value="MI">Michigan</option>
-                    <option value="MN">Minnesota</option>
-                    <option value="MS">Mississippi</option>
-                    <option value="MO">Missouri</option>
-                    <option value="MT">Montana</option>
-                    <option value="NE">Nebraska</option>
-                    <option value="NV">Nevada</option>
-                    <option value="NH">New Hampshire</option>
-                    <option value="NJ">New Jersey</option>
-                    <option value="NM">New Mexico</option>
-                    <option value="NY">New York</option>
-                    <option value="NC">North Carolina</option>
-                    <option value="ND">North Dakota</option>
-                    <option value="OH">Ohio</option>
-                    <option value="OK">Oklahoma</option>
-                    <option value="OR">Oregon</option>
-                    <option value="PA">Pennsylvania</option>
-                    <option value="RI">Rhode Island</option>
-                    <option value="SC">South Carolina</option>
-                    <option value="SD">South Dakota</option>
-                    <option value="TN">Tennessee</option>
-                    <option value="TX">Texas</option>
-                    <option value="UT">Utah</option>
-                    <option value="VT">Vermont</option>
-                    <option value="VA">Virginia</option>
-                    <option value="WA">Washington</option>
-                    <option value="WV">West Virginia</option>
-                    <option value="WI">Wisconsin</option>
-                    <option value="WY">Wyoming</option>
-                </select>
-            </div>
-            <div class="col">
-                <label for="majors">Majors:</label>
-                <input type="text" id="majors" placeholder="Majors">
+                <label for="add-education">
+                    Do you want to add education?
+                </label>
             </div>
         </div>
-        <button type="button" id="add-education-button">Add more Education</button>
-        <button type="button" onclick="nextSection('education', 'experience')">Move to Experience</button>
+        <div class="row education-fields">
+            
+        </div>
+        <button type="button" id="add-education-button" style="display: none;">Add more Education</button>
     </form>
 </section>
 
@@ -619,139 +550,19 @@
 <section id="experience">
     <h2>Experience</h2>
     <form id="experience-form">
-        <div class="row experience-fields">
-            <div class="col">
-                <label for="employer">Employer Name</label>
-                <input type="text" id="employer" name="employer" placeholder="Employer Name">
-            </div>
-            <div class="col">
-                <label for="street">Street Address</label>
-                <input type="text" id="street" name="street" placeholder="Street Address">
-            </div>
-            <div class="col">
-                <label for="city">City</label>
-                <input type="text" id="city" name="city" placeholder="City">
-            </div>
-            <div class="col">
-                <label for="state">State</label>
-                <select id="state" name="state">
-                    <option value="">Select state</option>
-                    <option value="AL">Alabama</option>
-                    <option value="AK">Alaska</option>
-                    <option value="AZ">Arizona</option>
-                    <option value="AR">Arkansas</option>
-                    <option value="CA">California</option>
-                    <option value="CO">Colorado</option>
-                    <option value="CT">Connecticut</option>
-                    <option value="DE">Delaware</option>
-                    <option value="FL">Florida</option>
-                    <option value="GA">Georgia</option>
-                    <option value="HI">Hawaii</option>
-                    <option value="ID">Idaho</option>
-                    <option value="IL">Illinois</option>
-                    <option value="IN">Indiana</option>
-                    <option value="IA">Iowa</option>
-                    <option value="KS">Kansas</option>
-                    <option value="KY">Kentucky</option>
-                    <option value="LA">Louisiana</option>
-                    <option value="ME">Maine</option>
-                    <option value="MD">Maryland</option>
-                    <option value="MA">Massachusetts</option>
-                    <option value="MI">Michigan</option>
-                    <option value="MN">Minnesota</option>
-                    <option value="MS">Mississippi</option>
-                    <option value="MO">Missouri</option>
-                    <option value="MT">Montana</option>
-                    <option value="NE">Nebraska</option>
-                    <option value="NV">Nevada</option>
-                    <option value="NH">New Hampshire</option>
-                    <option value="NJ">New Jersey</option>
-                    <option value="NM">New Mexico</option>
-                    <option value="NY">New York</option>
-                    <option value="NC">North Carolina</option>
-                    <option value="ND">North Dakota</option>
-                    <option value="OH">Ohio</option>
-                    <option value="OK">Oklahoma</option>
-                    <option value="OR">Oregon</option>
-                    <option value="PA">Pennsylvania</option>
-                    <option value="RI">Rhode Island</option>
-                    <option value="SC">South Carolina</option>
-                    <option value="SD">South Dakota</option>
-                    <option value="TN">Tennessee</option>
-                    <option value="TX">Texas</option>
-                    <option value="UT">Utah</option>
-                    <option value="VT">Vermont</option>
-                    <option value="VA">Virginia</option>
-                    <option value="WA">Washington</option>
-                    <option value="WV">West Virginia</option>
-                    <option value="WI">Wisconsin</option>
-                    <option value="WY">Wyoming</option>
-                </select>
-            </div>
-            <div class="col">
-                <label for="zip">Zip Code</label>
-                <input type="text" id="zip" name="zip" placeholder="Zip Code">
-            </div>
-        </div>
 
         <div class="row">
-            <div class="col">
-                <label for="phone">Mobile Phone</label>
-                <input type="text" id="phone" name="phone" placeholder="Mobile Phone">
+            <div class="col-auto">
+                <input type="checkbox" id="add-experience" name="add-experience" onclick="toggleExperienceButton()">
             </div>
             <div class="col">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="Email">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <label for="supervisor">Name of Last Supervisor</label>
-                <input type="text" id="supervisor" name="supervisor" placeholder="Last Name">
-            </div>
-            <div class="col">
-                <label for="last-title">Your Last Job Title</label>
-                <input type="text" id="last-title" name="last-title" placeholder="Title">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <label for="start-date">Start Date</label>
-                <input type="date" id="start-date" name="start-date">
-            </div>
-            <div class="col">
-                <label for="end-date">End Date</label>
-                <input type="date" id="end-date" name="end-date">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <label for="reason-leaving">Reason for Leaving</label>
-                <input type="text" id="reason-leaving" name="reason-leaving" placeholder="Reason">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <label for="duties">Duties Performed</label>
-                <textarea id="duties" name="duties" rows="4" placeholder="Please Explain"></textarea>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <label for="contact-employer">
-                    <input type="checkbox" id="contact-employer" name="contact-employer">
-                    May we contact this employer?
+                <label for="add-experience">
+                    Do you want to add work experience?
                 </label>
             </div>
         </div>
 
-        <button type="button" id="add-experience-button">Add more Experience</button>
-        <button type="button" onclick="nextSection('experience', 'acknowledgment')">Move to Acknowledgment & Waiver</button>
+        <button type="button" id="add-experience-button" style="display: none;">Add an Experience</button>
     </form>
 </section>
 
