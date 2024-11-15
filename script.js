@@ -1,49 +1,87 @@
 // Smooth Scroll Navigation - Active Link Highlight
-window.addEventListener('scroll', function() {
-  let sections = document.querySelectorAll('section');
-  let navLinks = document.querySelectorAll('nav ul li a');
+window.addEventListener("scroll", function () {
+	let sections = document.querySelectorAll("section");
+	let navLinks = document.querySelectorAll("nav ul li a");
 
-  sections.forEach((section, index) => {
-      let top = window.scrollY;
-      let offset = section.offsetTop - 100;
-      let height = section.offsetHeight;
+	sections.forEach((section, index) => {
+		let top = window.scrollY;
+		let offset = section.offsetTop - 100;
+		let height = section.offsetHeight;
 
-      if (top >= offset && top < offset + height) {
-          navLinks.forEach(link => {
-              link.classList.remove('active');
-          });
-          navLinks[index].classList.add('active');
-      }
-  });
+		if (top >= offset && top < offset + height) {
+			navLinks.forEach((link) => {
+				link.classList.remove("active");
+			});
+			navLinks[index].classList.add("active");
+		}
+	});
 });
 
-// Dynamic Add/Remove References
-document.getElementById('add-reference').addEventListener('click', function() {
-  const referenceSection = document.getElementById('reference-section');
-  const newReference = document.createElement('div');
-  newReference.classList.add('reference-fields');
+// Function to validate the entire form
+function validateForm(formId) {
+	const form = document.getElementById(formId);
+	const requiredFields = form.querySelectorAll(
+		"input[required], select[required], textarea[required]"
+	);
+	let isValid = true;
 
-  newReference.innerHTML = `
-        <div class="col">
-            <label for="reference-name">Reference Name:</label>
-            <input type="text" id="reference-name" name="reference-name" placeholder="Name" required>
-        </div>
-        <div class="col">
-            <label for="reference-title">Title:</label>
-            <input type="text" id="reference-title" name="reference-title" placeholder="Title" required>
-        </div>
-        <div class="col">
-            <label for="reference-company">Company:</label>
-            <input type="text" id="reference-company" name="reference-company" placeholder="Company" required>
-        </div>
-        <div class="col">
-            <label for="reference-phone">Phone:</label>
-            <input type="tel" id="reference-phone" name="reference-phone" placeholder="Phone" required>
-  `;
+	// Clear previous error messages
+	clearErrorMessages(form);
 
-  referenceSection.appendChild(newReference);
+	// Loop through all required fields
+	requiredFields.forEach((field) => {
+		if (!field.checkValidity()) {
+			isValid = false;
+			showErrorMessage(field, getErrorMessage(field));
+		}
+	});
 
-  newReference.querySelector('.remove-reference').addEventListener('click', function() {
-      referenceSection.removeChild(newReference);
-  });
-});
+	return isValid;
+}
+
+// Function to get personalized error messages for each field
+function getErrorMessage(field) {
+	if (field.validity.valueMissing) {
+		return "This field is required.";
+	} else if (field.validity.typeMismatch) {
+		if (field.type === "email") {
+			return "Please enter a valid email address.";
+		} else if (field.type === "tel") {
+			return "Please enter a valid phone number.";
+		} else if (field.type === "date") {
+			return "Please select a valid date.";
+		}
+	} else if (field.validity.patternMismatch) {
+		return "Please enter the correct format.";
+	}
+	return "This field is invalid.";
+}
+
+// Function to show error messages near the field
+function showErrorMessage(field, message) {
+	const errorMessage = document.createElement("div");
+	errorMessage.classList.add("error-message");
+	errorMessage.innerText = message;
+
+	field.classList.add("error");
+	field.parentElement.appendChild(errorMessage);
+}
+
+// Function to clear all previous error messages
+function clearErrorMessages(form) {
+	const errorMessages = form.querySelectorAll(".error-message");
+	const errorFields = form.querySelectorAll(".error");
+	errorMessages.forEach((message) => message.remove());
+	errorFields.forEach((field) => field.classList.remove("error"));
+}
+
+// Function to move to the next section if validation is successful
+function nextSection(currentId, nextId) {
+	const isFormValid = validateForm(currentId);
+	if (isFormValid) {
+		document.getElementById(currentId).style.display = "none";
+		document.getElementById(nextId).style.display = "block";
+	} else {
+		alert("Please fill out all required fields correctly.");
+	}
+}
